@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import '../App.css';
 import Navbar from './Navbar';
 import AddTask from './AddTask';
-import Tasklist from './TaskList';
+import TaskList from './TaskList';
 
 function App() {
   return (
@@ -15,9 +15,9 @@ function App() {
             <div className='col-10 mx-auto'>
               <Routes>
                 <Route path="/add-task" component={AddTask} />
-                <Route path="/task-list" component={Tasklist} />
+                <Route path="/task-list" component={TaskList} />
               </Routes>
-              
+
             </div>
           </div>
         </div>

@@ -25,8 +25,8 @@ function Navbar() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add-task" element={<AddTask />} />
         <Route path="/task-list" element={<TaskList />} />
+        <Route path="/add-task" element={<AddTask />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </div>
