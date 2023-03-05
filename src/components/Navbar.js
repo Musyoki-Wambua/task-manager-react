@@ -1,26 +1,36 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink, Routes, Route, Link } from 'react-router-dom';
+import Home from './Home';
+import Login from './Login';
+import AddTask from './AddTask';
+import TaskList from './TaskList';
 
-const Navbar = () => {
-    return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+function Navbar() {
+  return (
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <NavLink className="navbar-brand" to="/">Home</NavLink>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/add-task" >Add Task</NavLink>
+          <ul className="nav justify-content-center">
+          <li className="nav-link">
+              <NavLink className="nav-link" to='/task-list'>All Tasks</NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/">All Tasks</NavLink>
+            <li className="nav-link">
+              <NavLink className="nav-link" to='/add-task'>Add Tasks</NavLink>
             </li>
-          
+            <li className="nav-link">
+              <NavLink className="nav-link" to='/login'>Login/Sign-Up</NavLink>
+            </li>
           </ul>
-        </div>
       </nav>
-    );
-};
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/add-task" element={<AddTask />} />
+        <Route path="/task-list" element={<TaskList />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </div>
+  );
+}
 
 export default Navbar;
