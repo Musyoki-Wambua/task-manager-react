@@ -20,9 +20,7 @@ function App() {
                 <Route path="/task-list" component={TaskList} />
                 <Route path="/login" component={Login} />
                 <Route path="/sign-up" component={SignUp} />
-
               </Routes>
-
             </div>
           </div>
         </div>

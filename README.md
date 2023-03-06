@@ -24,15 +24,15 @@
 
 - To use this repository on your machine do the following simple steps:
 
-        - Open a terminal / command line interface on your computer.
+  - Open a terminal / command line interface on your computer.
 
-        - Clone the repo by using the following to create a copy on your local machine:
+  - Clone the repo by using the following to create a copy on your local machine:
 
-        - git@github.com:Musyoki-Wambua/task-manager-react.git
+          - git@github.com:Musyoki-Wambua/task-manager-react.git
 
   - Change directory to the repo folder:
 
-    - cd task-manager-react
+        - cd task-manager-react
 
   - (Optional) Open it in Visual Studio Code:
 
