@@ -15,4 +15,7 @@
 .card-buttons {
   margin-top: 0rem;
 }
+body {
+  background-image: url("./images/bg.jpg");
+}
 

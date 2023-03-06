@@ -8,7 +8,7 @@ function AddTask() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const task = { title, description, due, status: 0 };
-    fetch('http://localhost:9292/tasks', {
+    fetch('https://api.npoint.io/c3b220c900bc947a91c5/tasks', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(task),

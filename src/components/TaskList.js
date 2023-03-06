@@ -7,7 +7,7 @@ function TaskList() {
   const [selectedTask, setSelectedTask] = useState(null);
 
   useEffect(() => {
-    fetch('https://api.npoint.io/c3b220c900bc947a91c5/users')
+    fetch('https://api.npoint.io/c3b220c900bc947a91c5/tasks')
       .then((res) => res.json())
       .then((data) => setTasks(data))
       .catch((err) => console.error(err));
@@ -46,7 +46,7 @@ function TaskList() {
   }
 
   const handleDelete = (id) => {
-    fetch(`https://api.npoint.io/c3b220c900bc947a91c5/users${id}`, { method: 'DELETE' })
+    fetch(`https://api.npoint.io/c3b220c900bc947a91c5/tasks/${id}`, { method: 'DELETE' })
       .then(() => {
         setTasks(tasks.filter((task) => task.id !== id));
       })
