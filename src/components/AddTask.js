@@ -8,7 +8,7 @@ function AddTask() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const task = { title, description, due, status: 0 };
-      fetch("https://64057fb98eee833dd80c72c2--sweet-custard-a26aff.netlify.app/add-task", {
+      fetch("http://localhost:9292/tasks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(task),

@@ -1,4 +1,4 @@
-.card-title {
+/* .card-title {
   color: red;
 }
 
@@ -14,8 +14,20 @@
 }
 .card-buttons {
   margin-top: 0rem;
-}
+} */
 body {
   background-image: url("./images/bg.jpg");
 }
+.created {
+  color: green;
+}
 
+.incomplete {
+  color: orange;
+}
+.completed {
+  color: blue;
+}
+.canceled {
+  color: red;
+}

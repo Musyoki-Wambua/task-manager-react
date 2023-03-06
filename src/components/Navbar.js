@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Routes, Route, Link } from 'react-router-dom';
+import { NavLink, Routes, Route } from 'react-router-dom';
 // import Home from './Home';
 import Login from './Login';
 import AddTask from './AddTask';
@@ -13,7 +13,7 @@ function Navbar() {
         {/* <NavLink className="navbar-brand" to="/">Home</NavLink> */}
           <ul className="nav justify-content-center">
           <li className="nav-link">
-              <NavLink className="nav-link" to='/task-list'>All Tasks</NavLink>
+              <NavLink className="nav-link" to='/'>All Tasks</NavLink>
             </li>
             <li className="nav-link">
               <NavLink className="nav-link" to='/add-task'>Add Tasks</NavLink>
@@ -29,7 +29,7 @@ function Navbar() {
 
       <Routes>
         {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/task-list" element={<TaskList />} />
+        <Route path="/" element={<TaskList />} />
         <Route path="/add-task" element={<AddTask />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignUp />} />

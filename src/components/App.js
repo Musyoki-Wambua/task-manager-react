@@ -16,10 +16,10 @@ function App() {
           <div className='row'>
             <div className='col-10 mx-auto'>
               <Routes>
-                <Route path="/add-task" component={AddTask} />
-                <Route path="/task-list" component={TaskList} />
-                <Route path="/login" component={Login} />
-                <Route path="/sign-up" component={SignUp} />
+              <Route path="/" element={TaskList} />
+                <Route path="/add-task" element={AddTask} />
+                <Route path="/login" element={Login} />
+                <Route path="/sign-up" element={SignUp} />
               </Routes>
             </div>
           </div>

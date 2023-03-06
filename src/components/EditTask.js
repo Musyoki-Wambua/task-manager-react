@@ -8,7 +8,7 @@ const EditTask = ({ task, onUpdate, onClose }) => {
 
 
   function handleUpdate(taskId, data) {
-    fetch(`https://api.npoint.io/c3b220c900bc947a91c5/tasks/${taskId}`, {
+    fetch(`http://localhost:9292/tasks/${taskId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const EditTask = ({ task, onUpdate, onClose }) => {
   return (
     <div>
       <div>
-      <label htmlFor={`title-${task.id}`}>Title:</label>
+      <span htmlFor={`title-${task.id}`}>Title:</span>
         <input
           type="text"
           id={`title-${task.id}`}
@@ -62,7 +62,7 @@ const EditTask = ({ task, onUpdate, onClose }) => {
         <br />
         <label htmlFor={`due-${task.id}`}>Due:</label>
         <input
-          type="text"
+          type="date"
           id={`due-${task.id}`}
           value={due}
           onChange={(event) => setDue(event.target.value)}

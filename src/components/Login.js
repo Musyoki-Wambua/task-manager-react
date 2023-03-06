@@ -13,20 +13,17 @@ function Login() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:9292/login', {
-        email: email,
-        password: password
+  function handleSubmit(event) {
+    event.preventDefault();
+    axios.post('http://localhost:9292/login', { email, password })
+      .then(response => {
+        localStorage.setItem('jwt', response.data.jwt);
+        window.location.href = '/tasks';
+      })
+      .catch(error => {
+        setError(error.response.data.error);
       });
-      console.log(response.data);
-      handleClose();
-    } catch (error) {
-      console.error(error);
-      setError('There was an error logging in.');
-    }
-  };
+  }
 
   return (
     <>
