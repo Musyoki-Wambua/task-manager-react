@@ -4,6 +4,7 @@ import Home from './Home';
 import Login from './Login';
 import AddTask from './AddTask';
 import TaskList from './TaskList';
+import SignUp from './SignUp';
 
 function Navbar() {
   return (
@@ -18,7 +19,10 @@ function Navbar() {
               <NavLink className="nav-link" to='/add-task'>Add Tasks</NavLink>
             </li>
             <li className="nav-link">
-              <NavLink className="nav-link" to='/login'>Login/Sign-Up</NavLink>
+              <NavLink className="nav-link" to='/login'>Login</NavLink>
+            </li>
+            <li className="nav-link">
+              <NavLink className="nav-link" to='/sign-up'>Sign-Up</NavLink>
             </li>
           </ul>
       </nav>
@@ -28,6 +32,8 @@ function Navbar() {
         <Route path="/task-list" element={<TaskList />} />
         <Route path="/add-task" element={<AddTask />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/sign-up" element={<SignUp />} />
+
       </Routes>
     </div>
   );
