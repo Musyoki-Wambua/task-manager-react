@@ -8,19 +8,20 @@ function AddTask() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const task = { title, description, due, status: 0 };
-    fetch('https://api.npoint.io/c3b220c900bc947a91c5/tasks', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(task),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log('Task added:', data);
-        setTitle('');
-        setDescription('');
-        setDue('');
+      fetch("https://64057fb98eee833dd80c72c2--sweet-custard-a26aff.netlify.app/add-task", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(task),
       })
-      .catch((err) => console.error(err));
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Task added:", data);
+          setTitle("");
+          setDescription("");
+          setDue("");
+        })
+        .catch((err) => console.error(err));
+
   };
 
   return (

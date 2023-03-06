@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Routes, Route, Link } from 'react-router-dom';
-import Home from './Home';
+// import Home from './Home';
 import Login from './Login';
 import AddTask from './AddTask';
 import TaskList from './TaskList';
@@ -10,7 +10,7 @@ function Navbar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <NavLink className="navbar-brand" to="/">Home</NavLink>
+        {/* <NavLink className="navbar-brand" to="/">Home</NavLink> */}
           <ul className="nav justify-content-center">
           <li className="nav-link">
               <NavLink className="nav-link" to='/task-list'>All Tasks</NavLink>
@@ -28,7 +28,7 @@ function Navbar() {
       </nav>
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/task-list" element={<TaskList />} />
         <Route path="/add-task" element={<AddTask />} />
         <Route path="/login" element={<Login />} />
