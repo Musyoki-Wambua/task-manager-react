@@ -1,59 +1,19 @@
-import React, {useState} from 'react';
+import React from "react";
 
-const TaskItem = (task,onUpdate) => {
-    const [description, setDescription] = useState(task.description);
-    const [due, setDue] = useState(task.due);
-  
-    function handleUpdate() {
-      fetch(`http://localhost:9292/tasks/${task.id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          description: description,
-          due: due
-        })
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log(data);
-        onUpdate(data);
-      })
-      .catch(error => console.error(error));
-    } 
-  
-    
-    return (
-        <div>
-             <div>
+const TaskItem = ({ task, onEdit }) => {
+  function handleClick() {
+    onEdit(task);
+  }
+
+  return (
+    <div className="task-card" onClick={handleClick}>
       <h2>{task.title}</h2>
-      <label htmlFor={`description-${task.id}`}>Description:</label>
-      <input
-        type="text"
-        id={`description-${task.id}`}
-        value={description}
-        onChange={event => setDescription(event.target.value)}
-      />
-      <br />
-      <label htmlFor={`due-${task.id}`}>Due:</label>
-      <input
-        type="text"
-        id={`due-${task.id}`}
-        value={due}
-        onChange={event => setDue(event.target.value)}
-      />
-      <br />
+      <p>Description: {task.description}</p>
+      <p>Due: {task.due}</p>
       <p>Status: {task.status}</p>
-      <button onClick={handleUpdate}>Update</button>
-    </div>            
-        </div>
-    );
+      <button>Edit</button>
+    </div>
+  );
 };
 
 export default TaskItem;

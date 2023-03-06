@@ -1,74 +1,25 @@
-import React from 'react';
+import React, { useState } from "react";
+import EditTask from "./EditTask";
 
-const Task = () => {
-    const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState({ title: "", description: "", due: "", status: "CREATED" });
+const Task = ({ task, onDelete, onUpdate }) => {
+  const [showDetails, setShowDetails] = useState(false);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setNewTask((prevState) => ({ ...prevState, [name]: value }));
+  const handleCardClick = () => {
+    setShowDetails(!showDetails);
   };
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    fetch("http://localhost:9292/tasks", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newTask),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setTasks((prevState) => [...prevState, data]);
-        setNewTask({ title: "", description: "", due: "", status: "CREATED" });
-      })
-      .catch((error) => console.error(error));
-  };
-  
-    return (
-      <div>
-        <form onSubmit={handleFormSubmit}>
-          <label>
-            Title:
-            <input
-              type="text"
-              name="title"
-              value={newTask.title}
-              onChange={handleInputChange}
-            />
-          </label>
-          <br />
-          <label>
-            Description:
-            <input
-              type="text"
-              name="description"
-              value={newTask.description}
-              onChange={handleInputChange}
-            />
-          </label>
-          <br />
-          <label>
-            Due:
-            <input
-              type="text"
-              name="due"
-              value={newTask.due}
-              onChange={handleInputChange}
-            />
-          </label>
-          <br />
-          <button type="submit">Create</button>
-        </form>
-        {tasks.map((task) => (
-          <div key={task.id}>
-            <h2>{task.title}</h2>
-            <p>{task.description}</p>
-            <p>{task.due}</p>
-            <p>{task.status}</p>
-          </div>
-        ))}
-      </div>
-    );
+  return (
+    <div className="task-card" onClick={handleCardClick}>
+      <h2>{task.title}</h2>
+      <p>{task.description}</p>
+      <p>Due: {task.due}</p>
+      <p>Status: {task.status}</p>
+      <button onClick={() => onDelete(task.id)}>Delete</button>
+      {showDetails && (
+        <EditTask task={task} onUpdate={(taskId, data) => onUpdate(taskId, data)} />
+      )}
+    </div>
+  );
 };
 
 export default Task;
