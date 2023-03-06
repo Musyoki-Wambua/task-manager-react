@@ -7,7 +7,7 @@ function TaskList() {
   const [selectedTask, setSelectedTask] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:9292/tasks')
+    fetch('https://api.npoint.io/c3b220c900bc947a91c5/users')
       .then((res) => res.json())
       .then((data) => setTasks(data))
       .catch((err) => console.error(err));
@@ -46,7 +46,7 @@ function TaskList() {
   }
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:9292/tasks/${id}`, { method: 'DELETE' })
+    fetch(`https://api.npoint.io/c3b220c900bc947a91c5/users${id}`, { method: 'DELETE' })
       .then(() => {
         setTasks(tasks.filter((task) => task.id !== id));
       })
@@ -133,7 +133,7 @@ function TaskList() {
               <p className="card-text">{task.description}</p>
             </div>
             <div className="card-buttons mb-2">
-              <button class="btn btn-primary ms-3" onClick={handleEdit}>
+              <button className="btn btn-primary ms-3" onClick={handleEdit}>
                 Edit
               </button>
               <button

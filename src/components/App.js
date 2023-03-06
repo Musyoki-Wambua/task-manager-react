@@ -4,6 +4,8 @@ import '../App.css';
 import Navbar from './Navbar';
 import AddTask from './AddTask';
 import TaskList from './TaskList';
+import Login from './Login';
+import SignUp from './SignUp';
 
 function App() {
   return (
@@ -16,6 +18,9 @@ function App() {
               <Routes>
                 <Route path="/add-task" component={AddTask} />
                 <Route path="/task-list" component={TaskList} />
+                <Route path="/login" component={Login} />
+                <Route path="/sign-up" component={SignUp} />
+
               </Routes>
 
             </div>
