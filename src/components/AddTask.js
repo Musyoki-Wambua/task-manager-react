@@ -7,22 +7,33 @@ function AddTask() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const task = { title, description, due, status: 0 };
-      fetch("http://localhost:9292/tasks", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(task),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("Task added:", data);
-          setTitle("");
-          setDescription("");
-          setDue("");
-        })
-        .catch((err) => console.error(err));
 
+    if (!title || !description || !due) {
+      alert('Please fill in all fields');
+      return;
+    }
+    const task = { title, description, due, status: 0 };
+    fetch("https://api.npoint.io/a0ab707f6789ac581639/tasks", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(task),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Failed to add task');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Task added:", data);
+        setTitle("");
+        setDescription("");
+        setDue("");
+      })
+      .catch((err) => console.error(err));
   };
+
+
 
   return (
     <form className="border p-3 my-3" onSubmit={handleSubmit}>

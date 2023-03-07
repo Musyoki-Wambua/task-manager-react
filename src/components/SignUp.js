@@ -17,7 +17,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:9292/register', {
+      const response = await axios.post('https://api.npoint.io/c35dd9a69e45aa68cf2c/register', {
         full_name: fullName,
         email: email,
         password: password

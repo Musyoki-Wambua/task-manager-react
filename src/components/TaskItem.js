@@ -8,6 +8,20 @@ const TaskItem = ({ task, onEdit, onDelete }) => {
   function handleDelete() {
     onDelete(task.id);
   }
+  let statusClass = '';
+  switch(task.status) {
+    case 1: 
+        statusClass = 'btn-success';
+        break;
+        case 2:
+          statusClass = 'btn-primary';
+          break;
+        case 3: 
+          statusClass = "btn-danger";
+          break;
+          default:
+          break;
+  }
 
   return (
     <div className="task-card">

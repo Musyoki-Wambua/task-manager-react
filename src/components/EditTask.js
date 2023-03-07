@@ -8,7 +8,7 @@ const EditTask = ({ task, onUpdate, onClose }) => {
 
 
   function handleUpdate(taskId, data) {
-    fetch(`http://localhost:9292/tasks/${taskId}`, {
+    fetch(`https://api.npoint.io/a0ab707f6789ac581639/tasks/${taskId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -41,6 +41,8 @@ const EditTask = ({ task, onUpdate, onClose }) => {
   if (updated) {
     return null; 
   }
+
+  
 
   return (
     <div>

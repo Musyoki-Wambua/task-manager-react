@@ -9,7 +9,7 @@ function TaskList() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:9292/tasks')
+    fetch('https://api.npoint.io/a0ab707f6789ac581639/tasks')
       .then((res) => {
         if (!res.ok) {
           throw new Error('Failed to fetch tasks');
@@ -43,7 +43,7 @@ function TaskList() {
   }
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:9292/tasks/${id}`, { method: 'DELETE' })
+    fetch(`https://api.npoint.io/a0ab707f6789ac581639/tasks${id}`, { method: 'DELETE' })
       .then((res) => {
         if (!res.ok) {
           throw new Error('Failed to delete task');
@@ -52,6 +52,7 @@ function TaskList() {
       })
       .catch((err) => setError(err.message));
   };
+  
 
     return (
       <div className="container px-4 text-center">
